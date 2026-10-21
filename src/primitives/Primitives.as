@@ -141,10 +141,10 @@ public class Primitives {
 
 		primTable["execJs"]				= function(b:*):* {app.callJsFunction("execJs", interp.arg(b, 0))};
 
-		/*primTable["fetchUrl"]			= function(b:*):* {
+		primTable["fetchUrl"]			= function(b:*):* {
 			function responseHandler(e:Event):void {
 				if(e.type == Event.COMPLETE){
-					b.response = responseText;
+					b.response = loader.data;
 				}else{
 					b.response = '';
 				}
@@ -161,14 +161,16 @@ public class Primitives {
 			b.requestLoader = loader;
 
 			var url:String = 'http://' + interp.arg(b,0);
-			loader.load(new URLRequest(url));}*/
+			loader.load(new URLRequest(url));
+			return(loader.data);
+			}
 
 
-		/*primTable["letters:to:of:"]		= primLettersBetween;
-		primTable["alterString"]		= primAlterString;
+		primTable["letters:to:of:"]		= primLettersBetween;
+		//primTable["alterString"]		= primAlterString;
 		primTable["caseSensitive"]		= function(b:*):Boolean { return (interp.arg(b, 0) == interp.arg(b, 1)) };
 		primTable["asciiFor:"]			= function(b:*):* { return interp.arg(b, 0).charCodeAt(0) };
-		primTable["ascii:asString"]		= function(b:*):* { return String.fromCharCode(interp.numarg(interp.arg(b, 0))) };
+		primTable["ascii:asString"]		= function(b:*):* { return String.fromCharCode((interp.numarg(b, 0))) };
 		primTable[":contains:"]			= function(b:*):Boolean {
 				var a:* = interp.arg(b, 0);
 				if(a.indexOf(interp.arg(b, 1)) >= 0){
@@ -207,15 +209,15 @@ public class Primitives {
 
 		primTable["replaceBetween"]		= function(b:*):* {
 				//First, grab the text between the two numbers
-				var s:String = b[2];
-				var n1:int = interp.numarg(interp.arg(b, 0)) - 1;
-				var n2:int = interp.numarg(interp.arg(b, 1));
+				var s:String = interp.arg(b, 2);
+				var n1:int = interp.numarg(b, 0) - 1;
+				var n2:int = interp.numarg(b, 1);
 				if ((n1 < 0) || (n2 >= s.length)) return "";
 				var sect:String = s.slice(n1, n2);
 				//Then the find-and-replace tactic (FLAWED!!! Can replace two bits of identical text...)
-				var str:String = b[2];
+				var str:String = interp.arg(b, 2);
 				var search:String = sect;
-				var replace:String = b[3];
+				var replace:String = interp.arg(b, 3);
 
 				function strReplace(str:String, search:String, replace:String):String {
 					return str.split(search).join(replace);
@@ -230,11 +232,12 @@ public class Primitives {
 					return output;
 				}
 				return repeatString(interp.arg(b, 0), interp.arg(b, 1));
-		}*/
+		}
 		new LooksPrims(app, interp).addPrimsTo(primTable);
 		new MotionAndPenPrims(app, interp).addPrimsTo(primTable);
 		new SoundPrims(app, interp).addPrimsTo(primTable);
 		new VideoMotionPrims(app, interp).addPrimsTo(primTable);
+		new SensorPrims(app, interp).addPrimsTo(primTable);
 		addOtherPrims(primTable);
 	}
 
@@ -548,15 +551,15 @@ public class Primitives {
 		var rex:RegExp = /[\s\r\n]+/gim;
 		str = str.replace(rex,'');
 		return str;
-	}
+	}*/
 
 	private function primLettersBetween(b:Block):String {
 		var s:String = interp.arg(b, 2);
-		var n1:int = interp.numarg(b[0]) - 1;
-		var n2:int = interp.numarg(b[1]);
+		var n1:int = interp.numarg(b, 0) - 1;
+		var n2:int = interp.numarg(b, 1);
 		if ((n1 < 0) || (n2 >= s.length)) return "";
 		return s.slice(n1, n2);
-	}*/
+	}
 
 }
 }

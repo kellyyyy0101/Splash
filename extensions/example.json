@@ -1,0 +1,4 @@
+{"extensionName": "Ext Extension", 
+"extensionPort": 27631, 
+"blockSpecs": [[" ", "press light switch %n times", "toggle_switch", 10], ["r", "random block", "RANDOM"]] 
+}

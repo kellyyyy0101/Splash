@@ -76,7 +76,7 @@ public class Specs {
 		[14, "Text",		0x4d840b],
 		[15, "Program",		0x43544c],
 		[16, "Network&Misc",		0xbdc0f7],
-		[17, "Local\nConnection", 0x17576d],
+		[17, "Connections", 0x17576d],
 		[20, "Extension",	extensionsColor],
 	];
 
@@ -434,9 +434,9 @@ public class Specs {
 		["if %b then %b else %b",				"b", 14, "if:then:bool:"],
 		["text %s",								"r", 14, "returnString", "hello!"],
 		["-"],
-		/*["letters %n to %n of %s",				"r", 14, "letters:to:of:",		1, 3, "world"],
+		["letters %n to %n of %s",				"r", 14, "letters:to:of:",		1, 3, "world"],
 		["%s contains %s",						"b", 14, ":contains:",			"haystack", "needle"],
-		["%m.stringAlter %s",					"r", 14, "alterString",			"uppercase", "meow"],
+		//["%m.stringAlter %s",					"r", 14, "alterString",			"uppercase", "meow"],
 		["-"],
 		["times %s is in %s",					"r", 14, "times:isIn:",			"a", "raincoat"],
 		["replace letters %n to %n of %s with %s", "r", 14, "replaceBetween",	2, 4, "crust", "a"],
@@ -444,7 +444,7 @@ public class Specs {
 		["repeat %s %n times",					"r", 14, "repeat::times",		"do", 2],
 		["-"],
 		["ascii for %s",						"r", 14, "asciiFor:",			"A"],
-		["ascii %n as string",					"r", 14, "ascii:asString",		"65"],*/
+		["ascii %n as string",					"r", 14, "ascii:asString",		"65"],
 
 
 		//program blocks
@@ -456,12 +456,16 @@ public class Specs {
 		["--"],
 		["random joke",							"r", 16, "randomJoke"],
 		["random phrase",							"r", 16, "randomPhrase"],
+		["--"],
+		["fetch URL %s",							"r", 16, "fetchUrl"],
 		//old temp blocks
 		/*["var %s",								"r", 16, "tempVar"],
 		["set %s to %s",						" ", 16, "setTempVar"],
 		["change %s by %n",						" ", 16, "changeTempVar"],
 		["create var %s",						" ", 16, "createTempVar"]*/
 
-		
+		["send %s with value %s",								" ", 17, "sendMsg"],
+		["%s value",								"R", 17, "getMsg"],
+		["%s sent?",								"b", 17, "msgSent"],
 	];
 }}

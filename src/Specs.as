@@ -76,7 +76,7 @@ public class Specs {
 		[14, "Text",		0x4d840b],
 		[15, "Program",		0x43544c],
 		[16, "Network&Misc",		0xbdc0f7],
-		[17, "Connections", 0x17576d],
+		[17, "Animation", 0x17576d],
 		[20, "Extension",	extensionsColor],
 	];
 
@@ -464,8 +464,8 @@ public class Specs {
 		["change %s by %n",						" ", 16, "changeTempVar"],
 		["create var %s",						" ", 16, "createTempVar"]*/
 
-		["send %s with value %s",								" ", 17, "sendMsg"],
+		/*["send %s with value %s",								" ", 17, "sendMsg"],
 		["%s value",								"R", 17, "getMsg"],
-		["%s sent?",								"b", 17, "msgSent"],
+		["%s sent?",								"b", 17, "msgSent"],*/
 	];
 }}

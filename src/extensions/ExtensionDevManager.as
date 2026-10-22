@@ -89,7 +89,7 @@ public class ExtensionDevManager extends ExtensionManager {
 		}
 		button.setEventAction(function (evt:MouseEvent):void {
 			if (evt.shiftKey) {
-				//showShiftMenu(evt);
+				showShiftMenu(evt);
 			} else {
 				//Scratch.app.setModalOverlay(true);
 				//Scratch.app.externalCall('JSshowExtensionDialog');

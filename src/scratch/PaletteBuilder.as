@@ -171,14 +171,14 @@ public class PaletteBuilder {
 		addAddExtensionButton();
 		if (Scratch.app.isExtensionDevMode) {
 			var extensionDevManager:ExtensionDevManager = Scratch.app.extensionManager as ExtensionDevManager;
-			/*if (extensionDevManager) {
+			if (extensionDevManager) {
 				addItem(extensionDevManager.makeLoadExperimentalExtensionButton());
-			}*/
+			}
 		}
 	}
 
 	protected function addAddExtensionButton():void {
-		addItem(new Button(Translator.map('Import Experimental Extension'), showAnExtension, false, '/help/studio/tips/blocks/add-an-extension/'));
+		addItem(new Button(Translator.map('Import Extension'), showAnExtension, false, '/help/studio/tips/blocks/add-an-extension/'));
 	}
 
 	private function showDataCategory():void {

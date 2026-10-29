@@ -82,10 +82,10 @@ public class ScratchExtension {
 		// Return a descriptor for the Scratch PicoBoard extension.
 		var result:ScratchExtension = new ScratchExtension(ExtensionManager.picoBoardExt, 0);
 		result.isInternal = true;
-		result.javascriptURL = Scratch.app.server.getOfficialExtensionURL('picoExtension.js');
+		result.javascriptURL = '{"extensionName": "Weather Extension", "extensionPort": 12345, "blockSpecs": [["R", "%m.weather in %s", "get_weather_data", "temperature", "Boston"]], "menus": {"weather": ["temperature", "humidity", "wind speed"]}}'//Scratch.app.server.getOfficialExtensionURL('picoExtension.js');
 		result.thumbnailMD5 = '82318df0f682b1de33f64da8726660dc.png';
 		result.url = 'http://wiki.scratch.mit.edu/wiki/PicoBoard_Blocks';
-		result.tags = ['hardware'];
+		result.tags = ['Web'];
 		return result;
 	}
 
@@ -93,11 +93,11 @@ public class ScratchExtension {
 		// Return a descriptor for the LEGO WeDo extension.
 		var result:ScratchExtension = new ScratchExtension(ExtensionManager.wedoExt, 0);
 		result.isInternal = true;
-		result.javascriptURL = Scratch.app.server.getOfficialExtensionURL('wedoExtension.js');
+		result.javascriptURL = '{"extensionName": "Synth Extension", "extensionPort": 12346, "blockSpecs": [["w", "synth note %n velocity %n instrument %n for %n secs", "play_midi_example", 60, 127, 0, 2.0]], "menus": {}}'//Scratch.app.server.getOfficialExtensionURL('wedoExtension.js');
 		result.thumbnailMD5 = '9e5933c3b8b76596d1f889d44d3715a1.png';
 		result.url = 'http://wiki.scratch.mit.edu/wiki/LEGO_WeDo_Blocks';
-		result.tags = ['hardware'];
-		result.displayName = "LEGO WeDo 1.0";
+		result.tags = ['Software'];
+		//result.displayName = "LEGO WeDo 1.0";
 		return result;
 	}
 

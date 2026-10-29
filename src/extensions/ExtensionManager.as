@@ -50,8 +50,8 @@ public class ExtensionManager {
 	private var pollInProgress:Dictionary = new Dictionary(true);
 	static public const extensionSeparator:String = '\u001F';
 	static public const extensionSeparatorLegacy:String = '.';
-	static public const picoBoardExt:String = 'PicoBoard';
-	static public const wedoExt:String = 'LEGO WeDo';
+	static public const picoBoardExt:String = 'Weather';
+	static public const wedoExt:String = 'Synth';
 	static public const wedo2Ext:String = 'LEGO WeDo 2.0';
 
 	// Experimental extensions must be hosted on one of these domains

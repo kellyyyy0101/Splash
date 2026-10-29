@@ -31,6 +31,7 @@ import extensions.*;
 import flash.display.*;
 import flash.events.Event;
 import flash.events.MouseEvent;
+import flash.events.*;
 import flash.geom.ColorTransform;
 import flash.net.*;
 import flash.text.*;
@@ -293,18 +294,52 @@ public class PaletteBuilder {
 	}
 
 	private function showAnExtension():void {
-		/*function addExt(ext:ScratchExtension):void {
-			if (ext.isInternal) {
+		function addExt(ext:ScratchExtension):void {
+			/*if (ext.isInternal) {
 				app.extensionManager.setEnabled(ext.name, true);
 			} else {
 				app.extensionManager.loadCustom(ext);
+			}*/
+			function handler(e:Event):void
+			{
+				if(e.type == Event.COMPLETE){
+					
+				}else{
+					DialogBox.notify("error", "it didn't work, for now")
+				}
 			}
-			app.updatePalette();
+			/*var loader:URLLoader = new URLLoader();
+			loader.addEventListener(Event.COMPLETE, handler);
+            loader.addEventListener(IOErrorEvent.IO_ERROR, handler);
+            loader.addEventListener(SecurityErrorEvent.SECURITY_ERROR, handler);
+
+			var url:String = 'http://' + ext.javascriptURL;
+
+			loader.load(new URLRequest(url));*/
+			
+			var extLoaded:Object = null;
+            try
+            {
+                extLoaded = util.JSON.parse((ext.javascriptURL).toString());
+            }
+            catch(e:*)
+            {
+            }
+            if(!extLoaded || !("extensionName" in extLoaded) || !("extensionPort" in extLoaded))
+            {
+                return;
+            }
+            if(!extLoaded.blockSpecs)
+            {
+                extLoaded.blockSpecs = [];
+            }
+            app.extensionManager.loadRawExtension(extLoaded);
+			//app.updatePalette();
 		}
 
 		var lib:MediaLibrary = app.getMediaLibrary('extension', addExt);
-		lib.open();*/
-		Scratch.loadSingleFile(function(param1:Event):void{
+		lib.open();
+		/*Scratch.loadSingleFile(function(param1:Event):void{
             var extLoaded:Object = null;
             try
             {
@@ -322,7 +357,7 @@ public class PaletteBuilder {
                 extLoaded.blockSpecs = [];
             }
             app.extensionManager.loadRawExtension(extLoaded);
-        })
+        })*/
 	}
 
 	protected function addReporterCheckbox(block:Block):void {

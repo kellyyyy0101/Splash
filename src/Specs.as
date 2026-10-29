@@ -464,8 +464,7 @@ public class Specs {
 		["change %s by %n",						" ", 16, "changeTempVar"],
 		["create var %s",						" ", 16, "createTempVar"]*/
 
-		/*["send %s with value %s",								" ", 17, "sendMsg"],
-		["%s value",								"R", 17, "getMsg"],
-		["%s sent?",								"b", 17, "msgSent"],*/
+		//["loop costumes %n through %n within %n secs", "w", 17, "loopCostumes"],
+		
 	];
 }}

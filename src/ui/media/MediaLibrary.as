@@ -41,7 +41,7 @@ public class MediaLibrary extends Sprite {
 	private static const costumeCategories:Array = [
 		'All', 'Animals', 'Fantasy', 'Letters', 'People', 'Things', 'Transportation'];
 	private static const extensionCategories:Array = [
-		'All', 'Hardware'];
+		'All', 'Hardware', 'Web', 'Software'];
 	private static const soundCategories:Array = [
 		'All', 'Animal', 'Effects', 'Electronic', 'Human', 'Instruments',
 		'Music Loops', 'Musical Notes', 'Percussion', 'Vocals'];

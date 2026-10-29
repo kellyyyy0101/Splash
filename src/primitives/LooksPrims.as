@@ -27,6 +27,9 @@ package primitives {
 	import blocks.*;
 	import interpreter.*;
 	import scratch.*;
+	import flash.utils.setTimeout;
+	import flash.utils.Timer;
+	import flash.events.TimerEvent;
 
 public class LooksPrims {
 
@@ -91,6 +94,8 @@ public class LooksPrims {
 		primTable['yScroll']				= function(b:*):* { return app.stagePane.yScroll };
 
 		primTable['setRotationStyle']		= primSetRotationStyle;
+
+		primTable['loopCostumes']			= primLoop;
 	}
 
 	private function primNextCostume(b:Block):void {
@@ -363,6 +368,29 @@ public class LooksPrims {
 		var s:ScratchSprite = interp.targetSprite();
 		if ((s == null) || (s.parent == null)) return;
 		s.parent.setChildIndex(s, s.parent.getChildIndex(s) - 10000);
+		if (s.visible) interp.redraw();
+	}
+
+	private function primLoop(b:Block):void {
+		var s:ScratchObj = interp.targetObj();
+		if (s == null) return;
+		var arg:* = interp.numarg(b, 0);
+		var arg1:* = (interp.numarg(b, 0))-1;
+		var arg2:* = interp.numarg(b, 1);
+		var re:* = arg2 - arg ;
+		var loopTimer:Timer = new Timer((interp.numarg(b, 2)*1000)/re, re);
+
+		s.showCostume(arg1);
+
+		loopTimer.addEventListener(TimerEvent.TIMER, subNextCos, arg1 + loopTimer.currentCount);
+		loopTimer.start();
+		
+		
+	}
+
+	private function subNextCos(cos:*):*{
+		var s:ScratchObj = interp.targetObj();
+		s.showCostume(cos);
 		if (s.visible) interp.redraw();
 	}
 }}

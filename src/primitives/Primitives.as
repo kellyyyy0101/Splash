@@ -411,7 +411,7 @@ public class Primitives {
 	}
 
 	/*
-	temp vars are NOT actually tenp vars. This is a primitive(no pun intended) way of dictionaries
+	temp vars are NOT actually true temp vars. This is a primitive(no pun intended) way of dictionaries(or objects, as some call)
 	for now, this way of looping through the object doesn't work. 
 	if this gets implemented again, this need to be fixed
 	*/
@@ -421,7 +421,7 @@ public class Primitives {
 		
 		var targetIndex:int = -1; // -1 means "not found"
 
-		// 1. Loop using numerical index positions
+		
 		for (var i:int = 0; i < tempVars.length; i++) 
 		{
 			// Check if the name matches at this specific index
@@ -432,14 +432,14 @@ public class Primitives {
 			}
 		}
 
-		// 2. If we found a valid index, return the value using that index
+		
 		if (targetIndex != -1) 
 		{
 			//trace("Found match at index position: " + targetIndex);
 			return tempVars[targetIndex].value; 
 		}
 		
-		//trace("Name not found in array.");
+		
 		return null;
 
 	}
@@ -448,7 +448,7 @@ public class Primitives {
 	{
 		var targetIndex:int = -1; // -1 means "not found"
 
-		// 1. Loop using numerical index positions
+		//Loop using numerical index positions
 		for (var i:int = 0; i < tempVars.length; i++) 
 		{
 			// Check if the name matches at this specific index
@@ -459,14 +459,14 @@ public class Primitives {
 			}
 		}
 
-		// 2. If we found a valid index, return the value using that index
+		
 		if (targetIndex != -1) 
 		{
 			//trace("Found match at index position: " + targetIndex);
 			tempVars[targetIndex] = interp.arg(b, 1)
 		}
 		
-		//trace("Name not found in array.");
+		
 		//return null;
 	}
 

@@ -1,0 +1,1 @@
+{"extensionName": "Synth Extension", "extensionPort": 12346, "blockSpecs": [["w", "synth note %n velocity %n instrument %n for %n secs", "play_midi_example", 60, 127, 0, 2.0]], "menus": {}}
